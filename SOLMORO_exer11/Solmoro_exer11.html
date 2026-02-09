@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<!-- Name: Kriztian Mer J. Solmoro -->
+<!-- Section: G-6L -->
+<!-- Description: Delivery Webpage for room set up with ITEA -->
+<!-- Updates from exer8: div containers have been added for design purposes -->
+<!-- Exer 11: the form is now embedded with javascript -->
+	<head>
+		<title>ITEA | Delivery Form </title>
+		<link href='Solmoro_exer11.css' rel='stylesheet'>
+	</head>
+	<body>
+		<h1 name="opTex" id="opening">
+			ITEA Delivery Form
+		</h1>
+
+		<form id="formID">
+	<div class="container">
+			<div class=glassmorphism>
+			<!-- fieldset for the customer information -->
+			<!-- all inputs must have a label and name and id! -->
+			<fieldset id="filci">
+				<legend> Customer Information </legend>
+				<label for="cName"> Name: </label> <br>
+				<input type="text" name="name" id="cName" required>
+				<br>
+				<label for="mNumb"> Mobile Number: </label><br>
+				<!-- the first digits must be "09" and followed by 9 other digits to make 11 digits for mobile number -->
+				<input type="tel" name="number" id="mNumb" required pattern="09[0-9]{9}" placeholder="09XXXXXXXXX" title="Please enter a valid mobile number 09XXXXXXXXX">
+				<br>
+				<label for="emailA"> Email Address: </label><br>
+				<input type="email" name="email" id="emailA" required placeholder="Enter your email address" title="Please enter a valid email address">
+				<br>
+			</fieldset>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="glassmorphism">			
+			<fieldset id="delD">
+				<!-- fieldset for the room details -->
+				<!-- separated each part with sections for better organization and remembrance -->
+				<!-- turned texts into h4 for ease in possible formatting -->
+				<legend> Room Details </legend>
+				<section class="occN">
+					<label for="occ">Number of Occupants</label>
+					<select name="occ" id="occ"> <!-- the drop selection for number of occupants -->
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</section>
+				<section class="roomT">
+					<!-- section for room type -->
+					<h4>Room Type:</h4>
+					<br>
+					<input type="radio" name="rType" id="bRoom" value="bedroom" checked>
+					<label  for="bRoom">Bedroom</label>
+					<br>
+					<input type="radio" name="rType" id="lRoom" value="living_room">
+					<label for="lRoom"> Living Room </label>
+					<br>
+					<input type="radio" name="rType" id="office" value="office">
+					<label for="office">Office </label>
+					<br>
+					<input type="radio" name="rType" id="cRoom" value="children's_room">
+					<label for="cRoom">Children's Room </label>
+					<br>
+				</section>
+				<section class="bedS"> <!-- anther section this time for bed size but you get it now HAHAHAH -->
+					<h4>Bed Size:</h4>  
+					<br>
+					<!-- added "disabled" attribute for all options for assurance" -->
+					<input type="radio" name="bSize" id="single" value="single_bed" checked disabled> 
+					<label for="single" >Single</label>
+					<br>
+					<input type="radio" name="bSize" id="double" value="double_bed"  disabled>
+					<label for="double">Double</label>
+					<br>
+					<input type="radio" name="bSize" id="queen" value="queen_bed"  disabled>
+					<label for="queen" class="userOption">Queen</label>
+					<br>
+					<input type="radio" name="bSize" id="king" value="king_bed"  disabled>
+					<label for="king" class="userOption">King</label>
+					<br>
+				</section>
+				<section class="cabs">
+					<h4>Cabinets:</h4>
+					<br>
+					<input type="radio" name="Cabinets" id="bCase" value="bookcases" checked>
+					<label for="bCase">Bookcases</label>
+					<br>
+					<input type="radio" name="Cabinets" id="storS" value="storage_shelves">
+					<label for="storS">Storage Shelves</label>
+					<br>
+					<input type="radio" name="Cabinets" id="wallS" value="wall_shelves">
+					<label for="wallS">Wall Shelves</label>
+					<br>
+				</section>
+				<section class="tabs">
+					<h4>Tables:</h4>
+					<br>
+					<input type="checkbox" name="tables" id="desk" value="desks">
+					<label for="desk">Desk</label>
+					<br>
+					<input type="checkbox" name="tables" id="bTab" value="bedside_table">
+					<label for="bTab">Bedside Table</label>
+					<br>
+					<input type="checkbox" name="tables" id="mTab" value="multi_table">
+					<label for="mTab">Multifuncional Table</label>
+					<br>
+					<input type="checkbox" name="tables" id="dTab" value="dressing_table">
+					<label for="dTab">Dressing Table</label>
+					<br>
+				</section>
+				<section class="dAdd">
+					<h4>Decorative Additions:</h4>
+					<br>
+					<input type="checkbox" name="dec" id="mirror" value="mirror">
+					<label for="mirror">Mirror</label>
+					<br>
+					<input type="checkbox" name="dec" id="rug" value="rug">
+					<label for="rug">Rug</label>
+					<br>
+					<input type="checkbox" name="dec" id="wallA" value="wall_accents">
+					<label for="wallA">Wall Accents</label>
+					<br>
+					<input type="checkbox" name="dec" id="clock" value="clock">
+					<label for="clock">Clock</label>
+					<br>
+				</section>
+				<section class="size">
+					<label for="sizeCh">Room Size</label>
+					<select name="rSize" id="sizeCh"> <!-- the drop selection or room size -->
+						<option value="small">Small</option>
+						<option value="medium">Medium</option>
+						<option value="large">Large</option>
+						<option value="extra_large"> Extra Large</option>
+					</select>
+				</section>
+			</fieldset>
+		</div>
+	</div>
+	<div class="container">
+		<div class="glassmorphism">	
+			<!-- delivery details start here -->
+			<fieldset id="verT">
+				<legend>Delivery Details</legend>
+				<h4> Shipping </h4>
+				<input type="radio" name="shipping" id="delivery" value="delivery" checked>
+					<label  for="delivery">Delivery</label>
+					<br>
+				<input type="radio" name="shipping" id="thirdP" value="third-party">
+					<label for="thirdP"> Third-Party Pickup </label>
+				<br>
+				<label for="delAdd">Delivery Address</label><br>
+				<!-- I used placeholder rather than putting the test between the textarea tags because it doesn't trigger the "requirement" even if the user hasn't changed the "address here..." -->
+				<textarea name="address" id="delAdd" rows="10" cols="50" required placeholder="Address here..."></textarea>
+				<br>
+				<label for="delDate">Preferred Delivery Date</label> <!-- required date and time -->
+				<input type="date" name="forDel" id="delDate" required title="Please enter a date" >
+				<!-- for the date message -->
+				<p id="dateMes"></p>
+				<br>
+				<label for="delT">Preferred Delivery Time</label>
+				<input type="time" name="forDel" id="delT" required title="Please enter a preferred time of delivery" >
+				<!-- for time message -->
+				<p id="timeMes"></p>
+			</fieldset>
+		</div>
+	</div>
+	<div class="container">
+			<button class="buttn" type="submit" id="submit" name="submit">Submit</button>
+			<button class="buttn" type="reset">Reset</button>
+		</div>
+		</form>
+		<!-- JAVACRIPT STARTS HERE -->
+		<script type="text/javascript">
+		// all the variable containers for the different costs
+		var bedCost = 0;
+		var cabCost = 0;
+		var tabCost = 0;
+		var decCost = 0;
+		var roomSize = 0;
+		var delCost = 0;
+		var totalCost = 0;
+		
+		// computes the costs for the bed
+		function computeBed(x){
+			if (document.getElementById("single").checked) {
+				x = x+12000;
+			} else if (document.getElementById("double").checked){
+				x = x+13500;
+			} else if (document.getElementById("queen").checked){
+				x = x+16000;
+			} else if (document.getElementById("king").checked){
+				x = x+20000;
+			};
+			return x;
+		}
+		
+		//computes the costs for the cabinets
+		function computeCab(y){
+			if (document.getElementById("bCase").checked){
+				y = y + 5000;
+			}
+			else if (document.getElementById("storS").checked){
+				y = y + 10500;
+			}
+			else if (document.getElementById("wallS").checked){
+				y = y + 2500;
+			};
+			return y;
+		}
+		
+		//computes the costs for tables, but here, x can be added onto multiple times
+		function computeTab(x){
+
+			var tabCounter = 0 //counter for the discount
+			if (document.getElementById("desk").checked){
+				x = x + 7000;
+				tabCounter ++;
+			};
+			if (document.getElementById("bTab").checked){
+				x = x + 3500;
+				tabCounter ++;
+			};
+			if (document.getElementById("mTab").checked){
+				x = x + 10000;
+				tabCounter ++;
+			}
+			if (document.getElementById("dTab").checked){
+				x = x + 8000;
+				tabCounter++;
+			};
+
+			//the discount conditionals
+			if (tabCounter == 2){
+				x = x * 0.9; //10% discount for 2 tables
+			} else if (tabCounter == 3) {
+				x = x * 0.85; //15% discount for 3
+			} else if (tabCounter == 4) {
+				x = x * 0.75; //25% discount for 4
+			};
+
+			return x;
+		}
+		
+		// for the decorations
+		function computeDeco(y){
+			if(document.getElementById("mirror").checked){
+				y = y + 2500;
+			};
+			if (document.getElementById("rug").checked){
+				y = y + 8000;
+			};
+			if (document.getElementById("wallA").checked){
+				y = y + 1000;
+			};
+			if (document.getElementById("clock").checked){
+				y = y + 500
+			};
+			return y;
+		}
+
+		//The multiplier based on the room size
+		function roomMulti(x){
+			var roomS = document.getElementById("sizeCh"); //gets the select itself
+			var rMulti = roomS.value; //gets the value of the selected option
+			if (rMulti == "small") {
+				x = x + 1;
+			} else if (rMulti == "medium") {
+				x = x + 1.25;
+			} else if (rMulti == "large") {
+				x = x + 1.5;
+			} else if (rMulti == "extra_large") {
+				x = x + 2;
+			};
+			return x;
+		}
+		
+		//for the total costs
+		function computeTotal(){
+			totalCost = 0; //initializer
+
+			//calling the functions
+			bedCost = computeBed(bedCost);
+			cabCost = computeCab(cabCost);
+			tabCost = computeTab(tabCost);
+			decCost = computeDeco(decCost);
+			roomSize = roomMulti(roomSize);
+
+			// calculation for the room cost
+			totalCost = ((bedCost + cabCost + tabCost + decCost) * roomSize)
+
+			//for the selected delivery
+			if (document.getElementById("delivery").checked) {
+				totalCost = totalCost + 1000; //adds 1000 if itea will deliver
+			};
+
+			return totalCost;
+		}
+
+		//the disabling parts
+		function disBed(x) { //disables the bed size options when anything other than bedroom is selected
+			var bedOptions = document.getElementsByName("bSize");
+			var roomType = document.querySelector("input[name='rType']:checked").value;
+
+			if (roomType == "bedroom") { // enables everything for bedroom
+				for (var i = 0; i < bedOptions.length; i++) {
+					bedOptions[i].disabled = false; //iterates through bed options and disables them
+					x = 0;
+				}
+			} else if (roomType == "children's_room") { // only disables queen and king-sized bed
+				document.getElementById("queen").disabled = true;
+			    document.getElementById("king").disabled = true;
+			    document.getElementById("single").disabled = false;
+			    document.getElementById("double").disabled = false;
+			    x = x;
+
+			} else if (roomType == "office" || roomType == "living_room") { //disables everything if office or living room
+				for (var i = 0; i < bedOptions.length; i++) {
+					bedOptions[i].disabled = true;
+					x = x;
+				}
+			}
+
+
+			return x;
+		}
+
+		//"listens" for changes in room type then triggers disBed() function
+		document.querySelectorAll('input[name="rType"]').forEach(function(element) {
+			element.addEventListener('change', disBed);
+		});
+
+		disBed(bedCost); //make sure it's always initialized
+
+		function disDel() {
+	    var delType = document.querySelector("input[name='shipping']:checked").value;
+
+	    // Get the date and time input fields
+	    var delDate = document.getElementById("delDate");
+	    var delTime = document.getElementById("delT");
+
+	    if (delType !== "delivery") {
+	        // Disable the date and time input fields
+	        delDate.disabled = true;
+	        delTime.disabled = true;
+	        } else {
+	        // Enable the date and time input fields
+	        delDate.disabled = false;
+	        delTime.disabled = false;
+	        };
+	    }
+
+	    // "listens" for changes in the shipping radio buttons and trigger disDel()
+		document.querySelectorAll("input[name='shipping']").forEach(function(element) {
+		    element.addEventListener("change", disDel);
+		});
+
+		//make sure the date is in the future
+		function futureDate () {
+			var getDate = document.getElementById("delDate");
+			var selDate = new Date(getDate.value); //convert to Date object
+
+			//get the current date of the user
+			var currentDate = new Date();
+			currentDate.setHours(0, 0, 0, 0);
+
+			//check if the date is in the past or future
+			if (selDate <= currentDate) {
+				document.getElementById("dateMes").innerHTML = "Please enter a future date!";
+			} else if (selDate > currentDate) {
+				document.getElementById("dateMes").innerHTML = "";
+			}; 
+		}
+
+		//"listens" for the user entering the date
+		 document.getElementById("delDate").addEventListener("input", futureDate);
+
+		 //ensures the right time between 9am and 6pm
+		 function rightTime () {
+		 	var getTime = document.getElementById("delT");
+		 	var selTime = getTime.value; //get time value as hh:mm in strings
+
+		 	if (selTime < "09:00" || selTime > "18:00" ) {
+		 		document.getElementById("timeMes").innerHTML = "Please set a time between 9AM and 6PM!";
+		 	} else {
+		 		document.getElementById("timeMes").innerHTML = "";
+		 	};
+		 }
+
+		 //listens to the inputted time of the user
+		 document.getElementById("delT").addEventListener("input", rightTime);
+
+		// to disable the refreshing function the submit button does
+		function showSummary (event) {
+			event.preventDefault();
+
+			//get the customer information:
+			var customerName = document.getElementById("cName").value;
+		    var customerEmail = document.getElementById("emailA").value;
+		    var customerPhone = document.getElementById("mNumb").value;
+
+		    //get the room information:
+		    var occupants = document.getElementById("occ").value
+		    var roomType = document.querySelector("input[name='rType']:checked").value;
+		    var bedSize = document.querySelector("input[name='bSize']:checked").value;
+
+		    //cabinet array for multiple cabinets
+		    var cabinets = [];
+		    document.querySelectorAll("input[name='Cabinets']:checked").forEach(function(element) {
+		    	cabinets.push(element.value);
+		    });
+
+		    //table array
+		    var tables = [] ;
+		    document.querySelectorAll("input[name='tables']:checked").forEach(function(element) {
+		    	tables.push(element.value);
+		    });
+
+		    var decoAdd = [];
+		    document.querySelectorAll("input[name='dec']:checked").forEach(function(element) {
+		    	decoAdd.push(element.value);
+		    });
+
+
+		    var roomSize = document.getElementById("sizeCh").value;
+		    var totalCost = computeTotal();
+
+		    var receipt = `
+		    =========================================================
+			    [Customer Information]
+			    Name: ${customerName}
+			    Mobile Number: ${customerPhone}
+			    Email: ${customerEmail}
+
+			    [ITEA Room Setup Details]
+			    Number of Occupants: ${occupants}
+			    Room Type: ${roomType}
+			    Bed Size: ${bedSize}
+			    Room Size: ${roomSize}
+
+			    Cabinets: ${cabinets.join(", ") || "None"}
+			    Tables: ${tables.join(", ") || "None"}
+			    Decorative Additions: ${decoAdd.join(", ") || "None"}
+
+			    Total Cost of room setup: ₱${totalCost.toFixed(2)}
+
+			    Uwu Thank you for choosing ITEA! Uwu
+			    =====================================================
+			  `;
+
+			// the summary display
+			console.log(receipt);
+			alert(receipt);
+			
+			}
+
+		// triggers when submit button is clicked
+  		document.getElementById("formID").addEventListener("submit", showSummary);
+		
+		</script>
+	</body>
+
+</html>
